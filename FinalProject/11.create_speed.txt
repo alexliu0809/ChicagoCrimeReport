@@ -1,0 +1,8 @@
+create 'speed_crime_alexliu', 'crime'
+
+// designed for rotating.
+create ‘spd_crime_alexliu’, ‘crime’
+
+Cluster:
+/usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --zookeeper mpcs530132017test-hgm1-1-20170924181440.c.mpcs53013-2017.internal:2181,mpcs530132017test-hgm2-2-20170924181505.c.mpcs53013-2017.internal:2181,mpcs530132017test-hgm3-3-20170924181529.c.mpcs53013-2017.internal:2181 --replication-factor 1 --partitions 1 --topic crime_alexliu
+

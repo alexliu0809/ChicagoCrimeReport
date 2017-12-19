@@ -1,0 +1,4 @@
+https://data.cityofchicago.org/Public-Safety/Crimes-2017/d62x-nvdr/data
+https://data.cityofchicago.org/Public-Safety/Crimes-2016/kf95-mnd6/data
+https://data.cityofchicago.org/Public-Safety/Crimes-2015/vwwp-7yr9/data
+https://data.cityofchicago.org/Public-Safety/Crimes-2014/qnmj-8ku6/data

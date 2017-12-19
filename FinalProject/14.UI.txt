@@ -1,0 +1,7 @@
+Run the query at http://35.184.157.197/alexliu0809/Crime.html. 
+
+Input: Community Name / Year (2014-2017) / Month (01-12)
+
+Note that the crime API is updating slowly so it is possible that you read the same data and write to HBase many times.
+
+One good example to test Streaming is to use “Auburn Gresham” + “201711”. For a certain period of time the return values from API are all related to this community.

@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+  <head>
+    <title>Route Delays</title>
+    <link type="text/css" rel="stylesheet" href="elegant-aero.css" />
+  </head>
+  <!-- Thanks to Mario C. E. Freese <mcefreese@gmail.com> for permission to use background image -->
+  <body style='background-image:URL("BGImage.png");background-repeat:no-repeat;background-position:center top;-webkit-background-size:100%;-moz-background-size:100%;-o-background-size:100%;background-size: 100%;'>  
+   <!-- <iframe src="map.svg" style="display:block;width:556px;height:580px;margin-left:auto;margin-right:auto"/> -->
+
+    <p style="margin-bottom:2cm"/>
+  <form action="/cgi-bin/alexliu0809/route-report.pl" style="width:500px;margin:0 auto;padding-top=100px;background:#FFFFFF" method="get" target="results_iframe" class="elegant-aero">
+      <label>
+  <span>Community (See Pic Below):</span>
+  <!-- <input type="text" name="community" value="Hyde Park"/> -->
+      <select required name="community" style="width:150px;">
+        <option value="Hyde Park">Hyde Park</option>
+        <option value="Rogers Park">Rogers Park</option>
+        <option value="West Ridge">West Ridge</option>
+        <option value="Uptown">Uptown</option>
+        <option value="Lincoln Square">Lincoln Square</option>
+        <option value="North Center">North Center</option>
+        <option value="Lake View">Lake View</option>
+        <option value="Lincoln Park">Lincoln Park</option>
+        <option value="Near North Side">Near North Side</option>
+        <option value="Edison Park">Edison Park</option>
+        <option value="Norwood Park">Norwood Park</option>
+        <option value="Jefferson Park">Jefferson Park</option>
+        <option value="Forest Glen">Forest Glen</option>
+        <option value="North Park">North Park</option>
+        <option value="Albany Park">Albany Park</option>
+        <option value="Portage Park">Portage Park</option>
+        <option value="Irving Park">Irving Park</option>
+        <option value="Dunning">Dunning</option>
+        <option value="Montclare">Montclare</option>
+        <option value="Belmont Cragin">Belmont Cragin</option>
+        <option value="Hermosa">Hermosa</option>
+        <option value="Avondale">Avondale</option>
+        <option value="Logan Square">Logan Square</option>
+        <option value="Humboldt Park">Humboldt Park</option>
+        <option value="West Town">West Town</option>
+        <option value="Austin">Austin</option>
+        <option value="West Garfield Park">West Garfield Park</option>
+        <option value="East Garfield Park">East Garfield Park</option>
+        <option value="Near West Side">Near West Side</option>
+        <option value="North Lawndale">North Lawndale</option>
+        <option value="South Lawndale">South Lawndale</option>
+        <option value="Lower West Side">Lower West Side</option>
+        <option value="Loop">Loop</option>
+        <option value="Near South Side">Near South Side</option>
+        <option value="Armour Square">Armour Square</option>
+        <option value="Douglas">Douglas</option>
+        <option value="Oakland">Oakland</option>
+        <option value="Fuller Park">Fuller Park</option>
+        <option value="Grand Boulevard">Grand Boulevard</option>
+        <option value="Kenwood">Kenwood</option>
+        <option value="Washington Park">Washington Park</option>
+        <option value="Woodlawn">Woodlawn</option>
+        <option value="South Shore">South Shore</option>
+        <option value="Chatham">Chatham</option>
+        <option value="Avalon Park">Avalon Park</option>
+        <option value="South Chicago">South Chicago</option>
+        <option value="Burnside">Burnside</option>
+        <option value="Calumet Heights">Calumet Heights</option>
+        <option value="Roseland">Roseland</option>
+        <option value="Pullman">Pullman</option>
+        <option value="South Deering">South Deering</option>
+        <option value="East Side">East Side</option>
+        <option value="West Pullman">West Pullman</option>
+        <option value="Riverdale">Riverdale</option>
+        <option value="Hegewisch">Hegewisch</option>
+        <option value="Garfield Ridge">Garfield Ridge</option>
+        <option value="Archer Heights">Archer Heights</option>
+        <option value="Brighton Park">Brighton Park</option>
+        <option value="McKinley Park">McKinley Park</option>
+        <option value="Bridgeport">Bridgeport</option>
+        <option value="New City">New City</option>
+        <option value="West Elsdon">West Elsdon</option>
+        <option value="Gage Park">Gage Park</option>
+        <option value="Clearing">Clearing</option>
+        <option value="West Lawn">West Lawn</option>
+        <option value="Chicago Lawn">Chicago Lawn</option>
+        <option value="West Englewood">West Englewood</option>
+        <option value="Englewood">Englewood</option>
+        <option value="Greater Grand Crossing">Greater Grand Crossing</option>
+        <option value="Ashburn">Ashburn</option>
+        <option value="Auburn Gresham">Auburn Gresham</option>
+        <option value="Beverly">Beverly</option>
+        <option value="Washington Heights">Washington Heights</option>
+        <option value="Mount Greenwood">Mount Greenwood</option>
+        <option value="Morgan Park">Morgan Park</option>
+        <option value="O'Hare">O'Hare</option>
+        <option value="Edgewater">Edgewater</option>
+      </select>
+      </label>
+      <label>
+  <span>Year (2014-2017):</span>
+      <select required name="year" style="width:150px;">
+        <option value="2016">2016</option>
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2017">2017</option>
+      </select>
+      </label>
+      <label>
+  <span>Month (01-12):</span>
+      <select required name="month" style="width:150px;">
+        <option value="08">08</option>
+        <option value="01">01</option>
+        <option value="02">02</option>
+        <option value="03">03</option>
+        <option value="04">04</option>
+        <option value="05">05</option>
+        <option value="06">06</option>
+        <option value="07">07</option>
+        <option value="09">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+      </label>
+      <label>
+  <span></span> <input type="submit" value="Submit">
+      </label>
+    </form>
+    <p style="margin-bottom:2cm"/>
+
+   <div style="displayblock;width:100%;height:558px;">
+      <iframe src="map.svg" style="display:block;width:556px;height:580px;margin-left:auto;margin-right:auto"/>
+   </div>
+
+    <div style="displayblock;width:100%;height:558px;">
+      <iframe frameBorder="0" name="results_iframe" style="display:block;width:80%;margin-left:auto;margin-right:auto"/>
+    </div>
+  </body>
+
+</html>

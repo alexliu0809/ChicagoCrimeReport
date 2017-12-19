@@ -1,0 +1,53 @@
+//hbase-month-end, only contain data for the current month
+truncate 'spd_crime_alexliu'
+
+
+//Updating the HBase tables
+create 'scratch_crime_hbase_alexliu','crime'
+
+//write a scratch table in HBase containing our batch view
+create external table scratch_crime_hbase_alexliu (
+  Community_name_with_time string,
+  Homecide_count int,
+  Assault_count int,
+  Robbery_count int,
+  Battery_count int,
+  Theft_count int,
+  Burglary_count int,
+  Prostitution_count int,
+  Gambling_count int,
+  Narcotics_count int,
+  Kidnapping_count int,
+  Other_crime_count int) 
+  STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,crime:Homecide_count,crime:Assault_count,crime:Robbery_count,crime:Battery_count,crime:Theft_count,crime:Burglary_count,crime:Prostitution_count,crime:Gambling_count,crime:Narcotics_count,crime:Kidnapping_count,crime:Other_Crime_count')
+TBLPROPERTIES ('hbase.table.name' = 'crime_hbase_alexliu');
+
+insert overwrite table scratch_crime_hbase_alexliu
+  select concat(Community_Name,'-',Year,'-',Month),
+  Homecide_count, Assault_count,
+  Robbery_count, Battery_count,
+  Theft_count, Burglary_count,
+  Prostitution_count, Gambling_count,
+  Narcotics_count, Kidnapping_count,
+  Other_Crime_count
+  from crime_by_date_and_community_alexliu;
+
+//we update the batch and speed views using rotate
+disable 'spd_crime_alexliu'
+disable 'speed_crime_alexliu'
+disable 'crime_hbase_alexliu'
+disbale 'scratch_crime_hbase_alexliu'
+drop 'crime_hbase_alexliu' //drop what's in hbase
+snapshot 'scratch_crime_hbase_alexliu', 'scratch_crime_hbase_alexliu_snapshot'
+clone_snapshot 'scratch_crime_hbase_alexliu_snapshot', 'crime_hbase_alexliu'
+delete_snapshot 'scratch_crime_hbase_alexliu_snapshot'
+drop 'scratch_crime_hbase_alexliu'
+
+drop 'speed_crime_alexliu'
+snapshot 'spd_crime_alexliu', 'spd_crime_alexliu_snapshot'
+clone_snapshot 'spd_crime_alexliu_snapshot', 'speed_crime_alexliu'
+delete_snapshot 'spd_crime_alexliu_snapshot'
+drop 'spd_crime_alexliu'
+create 'spd_crime_alexliu', 'delay'
+
